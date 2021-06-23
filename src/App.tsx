@@ -6,6 +6,8 @@ import { NewRoom } from './pages/NewRoom';
 import { AuthContextProvider } from './contexts/AuthContext';
 import { Room } from './pages/Room';
 
+import { Toaster } from 'react-hot-toast';
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +18,7 @@ function App() {
           <Route path="/rooms/:id" component={Room} />
         </Switch>
       </AuthContextProvider>
+      <Toaster />
     </BrowserRouter>
   );
 }

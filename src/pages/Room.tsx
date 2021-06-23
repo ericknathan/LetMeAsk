@@ -10,6 +10,8 @@ import { database } from '../services/firebase';
 
 import '../styles/room.scss';
 
+import toast from 'react-hot-toast';
+
 type FirebaseQuestions = Record<string, {
     author: {
         name: string;
@@ -75,7 +77,8 @@ export function Room() {
         }
 
         if(!user) {
-            throw new Error('You must be logged in');
+            toast.error('Você deve estar logado!');
+            return;
         }
 
         const question = {
@@ -104,7 +107,7 @@ export function Room() {
             <main>
                 <div className="room-title">
                     <h1>Sala {title}</h1>
-                    { questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
+                    { questions.length > 0 && <span>{questions.length} pergunta{ questions.length > 1 ? 's' : ''}</span>}
                 </div>
 
                 <form  onSubmit={handleSendQuestion}>

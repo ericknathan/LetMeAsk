@@ -11,6 +11,8 @@ import '../styles/auth.scss';
 import { FormEvent, useState } from 'react';
 import { database } from '../services/firebase';
 
+import toast from 'react-hot-toast';
+
 export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle } = useAuth();
@@ -34,7 +36,7 @@ export function Home() {
         const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
         if(!roomRef.exists()) {
-            alert('Room does not exists.');
+            toast.error('Essa sala não existe!');
             return;
         }
 
