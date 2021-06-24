@@ -1,8 +1,8 @@
 import { InputHTMLAttributes } from 'react';
 
-import '../styles/switch.scss';
+import './style.scss';
 
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 
 type SwitchProps = {
     action: () => void;

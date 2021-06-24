@@ -1,17 +1,17 @@
 import { useHistory } from 'react-router';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
-import logoWhiteImg from '../assets/images/logo-white.svg';
-import googleIconImg from '../assets/images/google-icon.svg'
+import illustrationImg from '../../assets/images/illustration.svg';
+import logoImg from '../../assets/images/logo.svg';
+import logoWhiteImg from '../../assets/images/logo-white.svg';
+import googleIconImg from '../../assets/images/google-icon.svg'
 
-import { Button } from '../components/Button';
-import { useAuth } from '../hooks/useAuth';
-import { useTheme } from '../hooks/useTheme';
+import { Button } from '../../components/Button';
+import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 
-import '../styles/auth.scss';
+import '../../styles/auth.scss';
 import { FormEvent, useState } from 'react';
-import { database } from '../services/firebase';
+import { database } from '../../services/firebase';
 
 import toast from 'react-hot-toast';
 
@@ -19,6 +19,7 @@ export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle } = useAuth();
     
+    // eslint-disable-next-line
     const { theme, toggleTheme } = useTheme();
     
     const [roomCode, setRoomCode] = useState('');

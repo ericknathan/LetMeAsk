@@ -1,8 +1,8 @@
-import { useAuth } from '../hooks/useAuth';
-import logoutImg from '../assets/images/sign-out.svg';
+import { useAuth } from '../../hooks/useAuth';
+import logoutImg from '../../assets/images/sign-out.svg';
 import { useHistory } from 'react-router-dom'; 
 
-import '../styles/logout.scss';
+import './style.scss';
 
 type User = {
     id: string;
