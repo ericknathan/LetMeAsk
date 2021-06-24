@@ -6,7 +6,6 @@ import logoWhiteImg from '../assets/images/logo-white.svg';
 import googleIconImg from '../assets/images/google-icon.svg'
 
 import { Button } from '../components/Button';
-import { Switch } from '../components/SwitchButton';
 import { useAuth } from '../hooks/useAuth';
 import { useTheme } from '../hooks/useTheme';
 
@@ -42,7 +41,12 @@ export function Home() {
         const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
         if(!roomRef.exists()) {
-            toast.error('Essa sala não existe!');
+            toast.error('A sala informada é inexistente!');
+            return;
+        }
+
+        if(roomRef.val().endendAt) {
+            toast.error('A sala informada já foi encerrada!');
             return;
         }
 
