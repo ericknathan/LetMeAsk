@@ -1,5 +1,4 @@
 import { FormEvent, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg';
 
@@ -11,6 +10,7 @@ import { database } from '../services/firebase';
 import '../styles/room.scss';
 
 import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
 
 type FirebaseQuestions = Record<string, {
     author: {

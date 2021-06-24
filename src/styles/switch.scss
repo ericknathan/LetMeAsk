@@ -1,0 +1,50 @@
+.toggle-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    input {
+        display: none;
+    }
+}
+label.toggle-item {
+	width: 2.7em;
+    height: 1.5em;
+	display: inline-block;
+	border-radius: 50px;
+	position: relative;
+	transition: all .3s ease;
+	cursor: pointer;
+	&:before {
+        content: '';
+		position: absolute;
+		display: block;
+		transition: all .2s ease;
+		width: 2.3em;
+        
+		top: .25em;
+        left: .30em;
+        border-radius: 2em;
+        border: 2px solid #88cf8f;
+		transition: .3s ease;
+	}
+}
+
+.normal {
+	label {
+		background: #af4c4c;
+		&:before {
+			border: none;
+			width: 1em;
+            height: 1em;
+			background: #fff;
+		}
+	}
+}
+
+#normal:checked + label {
+	background: #4caf50;
+	&:before {
+		left: 22px;
+	}
+}
