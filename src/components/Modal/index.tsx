@@ -1,5 +1,32 @@
-export function modal() {
-    return (
-        <div></div>
-    )
+import { Button } from '../Button';
+
+type ModalProperties = {
+  action: () => void;
+  toggleAction: () => void;
+  title: string;
+  children: string;
+  acceptText: string;
+}
+
+export function Modal(props: ModalProperties) {
+
+  return(
+    <div className='visible'>
+        <div className="modal-box">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M29.66 18.3398L18.34 29.6598" stroke="#E73F5D" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M29.66 29.6598L18.34 18.3398" stroke="#E73F5D" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path fillRule="evenodd" clipRule="evenodd" d="M24 42V42C14.058 42 6 33.942 6 24V24C6 14.058 14.058 6 24 6V6C33.942 6 42 14.058 42 24V24C42 33.942 33.942 42 24 42Z" stroke="#E73F5D" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            <h2>{props.title}</h2>
+            <span>{props.children}</span>
+            <div className="buttons">
+                <Button id="cancel" onClick={props.toggleAction}>Cancelar</Button>
+                <Button id="confirm" onClick={props.action}>{props.acceptText}</Button>
+            </div>
+        </div>
+        <button className="bg"></button>
+    </div>
+  );
+
 }

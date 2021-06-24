@@ -1,0 +1,60 @@
+.invisible {
+    display: none;
+}
+
+.visible {
+
+    &, button.bg {
+        height: 100vh;
+        width: 100vw;
+        z-index: 5;
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    } 
+    
+    .modal-box {
+        background-color: white;
+        width: 590px;
+        height: 360px;
+        border-radius: 8px;
+        padding: 64px 122px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 10;
+
+        h2 {
+            color: #29292E;
+            font: 700 24px'Poppins', sans-serif;
+        }
+        span {
+            color: #737380;
+            font-family: normal 16px 'Roboto', sans-serif;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+
+            #cancel {
+                background-color: #DBDCDD;
+                color: #737380;
+            }
+
+            #confirm {
+                background-color: #E73F5D;
+            }
+        }
+    }
+
+    button.bg {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
