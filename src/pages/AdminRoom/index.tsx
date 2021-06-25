@@ -1,22 +1,20 @@
 import { useHistory, useParams } from 'react-router-dom';
-import { Fragment } from 'react';
 
 import Modal from 'react-modal';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
+import checkImg from '../../assets/images/check.svg';
+import answerImg from '../../assets/images/answer.svg';
 
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 import { ModalStyle } from '../../components/Modal';
-// import { useAuth } from '../../hooks/useAuth';
-// import { database } from '../../services/firebase';
 
 import '../../styles/room.scss';
 
-// import toast from 'react-hot-toast';
 import { useRoom } from '../../hooks/useRoom';
 import { database } from '../../services/firebase';
 
@@ -25,7 +23,6 @@ type RoomParams = {
 }
 
 export function AdminRoom() {
-    // const { user } = useAuth();
     const history = useHistory();
     const params = useParams<RoomParams>();
     const roomId = params.id;
@@ -50,6 +47,18 @@ export function AdminRoom() {
         await database.ref(`rooms/${roomId}/questions/${questionId}`).remove();
     }
     
+    async function handleCheckQuestionAsAnswered(questionId: string) {
+        await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+            isAnswered: true
+        });
+    }
+
+    async function handleHighlightQuestion(questionId: string) {
+        await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+            isHighlighted: true
+        });
+    }
+    
     return (
         <div id="page-room">
             <header>
@@ -59,7 +68,7 @@ export function AdminRoom() {
                         <RoomCode code={roomId} />
                         <Button isOutlined onClick={() => setCloseModalOpen(true)}>Encerrar sala</Button>
                         <Modal
-                            isOpen={closeModalOpen == true}
+                            isOpen={closeModalOpen === true}
                             onRequestClose={() => setCloseModalOpen(false)}
                             className="modal"
                             overlayClassName="bg"
@@ -88,7 +97,25 @@ export function AdminRoom() {
                                 <Question
                                     content={question.content}
                                     author={question.author}
+                                    isAnswered={question.isAnswered}
+                                    isHighlighted={question.isHighlighted}
                                 >
+                                    {!question.isAnswered && (
+                                        <Fragment>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                                            >
+                                                <img src={checkImg} alt="Marcar pergunta como respondida" />
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => handleHighlightQuestion(question.id)}
+                                            >
+                                                <img src={answerImg} alt="Dar destaque à pergunta" />
+                                            </button>
+                                        </Fragment>
+                                    )}
                                     <button
                                         type="button"
                                         onClick={() => setQuestionIdModalOpen(question.id)}

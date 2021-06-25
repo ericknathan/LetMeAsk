@@ -108,6 +108,13 @@
 
         .question-list {
             margin-top: 32px;
+
+            .empty-questions {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
         }
     }
 }
