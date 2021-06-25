@@ -1,46 +1,85 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img alt="Letmeask" src=".github/images/logo.svg" />
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img alt="License" src="https://img.shields.io/static/v1?label=License&message=MIT&color=835AFD&labelColor=404040&style=flat-square">
 
-## Available Scripts
+ <img src="https://img.shields.io/static/v1?label=NLW&message=06&color=835AFD&labelColor=404040&style=flat-square" alt="NLW 05" />
+</p>
 
-In the project directory, you can run:
+![cover](.github/images/cover.png)
 
-### `yarn start`
+## 💻 Projeto
+Letmeask é perfeito para criadores de conteúdos poderem criar salas de Q&A com o seu público, de uma forma muito organizada e democrática. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Este é um projeto desenvolvido durante a **[Next Level Week Together](https://nextlevelweek.com/)**, apresentada dos dias 20 a 27 de Junho de 2021.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :hammer_and_wrench: Features 
 
-### `yarn build`
+-   [x] Disponibiliza a função de Logout.
+-   [x] Exibe 'Toasters' para avisos.
+-   [x] Abre o modal de confirmação nas ações de deletar pergunta e encerrar sala.
+-   [ ] Refatoração de rotas.
+-   [ ] Switch de Dark Mode.
+-   [ ] Responsividade.
+-   [ ] Opção para editar código da sala.
+-   [ ] Filtro de perguntas.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ Tecnologias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ![ReactJS](https://reactjs.org/)
+- ![Typescript](https://www.typescriptlang.org/)
+- ![SASS](https://sass-lang.com/)
+- ![Firebase](https://firebase.google.com/)
+- ![React-Router-Dom](https://reactrouter.com/)
+- ![React-Hot-Toast](https://react-hot-toast.com/)
+- ![React-Modal](https://github.com/reactjs/react-modal)
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🔖 Layout
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Você pode visualizar o layout do projeto pensado pela [Rebecca Gonzalez](https://dribbble.com/rebeccagonzalez) através [desse link](https://www.figma.com/file/u0BQK8rCf2KgzcukdRRCWh/Letmeask/duplicate). Lembrando que é necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🚀 Executando o projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+Clone o projeto e acesse o diretório onde foi criado.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$ git clone https://github.com/ericknathan/letmeask.git
+$ cd letmeask
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Utilize o **yarn** ou o **npm install** para instalar as dependências do projeto.
+Em seguida, inicie o projeto.
+
+```bash
+yarn start
+```
+
+Lembre-se de criar o seu App no Firebase para obter as credencias do Banco de Dados. Em seguida, defina no arquivo .env as configurações do seu App (remova o example do arquivo .env.example e adicionne .local).
+ 
+ ```cl
+REACT_APP_API_KEY=
+REACT_APP_AUTH_DOMAIN=
+REACT_APP_DATABASE_URL=
+REACT_APP_PROJECT_ID=
+REACT_APP_STORAGE_BUCKET=
+REACT_APP_MESSAGING_SENDER_ID=
+REACT_APP_APP_ID=
+```
+
+O app estará disponível para acesso em seu navegador em http://localhost:3000.
+
+Lembrando que será necessário criar uma conta no [Firebase](https://firebase.google.com/) e um projeto para disponibilizar um Realtime Database.
+
+
+## 📄 Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+<br />
