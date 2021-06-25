@@ -9,7 +9,6 @@ type SwitchProps = {
 }
 
 export function Switch(props: SwitchProps) {
-
     
     return (
         <div className="toggle-wrapper">

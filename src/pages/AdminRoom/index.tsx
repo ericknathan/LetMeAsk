@@ -7,6 +7,7 @@ import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import checkImg from '../../assets/images/check.svg';
 import answerImg from '../../assets/images/answer.svg';
+import emptyImg from '../../assets/images/empty-questions.svg';
 
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
@@ -91,55 +92,61 @@ export function AdminRoom() {
                 </div>
 
                 <div className="question-list">
-                    {questions.map(question => {
-                        return (
-                            <Fragment key={question.id}>
-                                <Question
-                                    content={question.content}
-                                    author={question.author}
-                                    isAnswered={question.isAnswered}
-                                    isHighlighted={question.isHighlighted}
-                                >
-                                    {!question.isAnswered && (
-                                        <Fragment>
-                                            <button
-                                                type="button"
-                                                onClick={() => handleCheckQuestionAsAnswered(question.id)}
-                                            >
-                                                <img src={checkImg} alt="Marcar pergunta como respondida" />
-                                            </button>
-                                            <button
-                                                type="button"
-                                                onClick={() => handleHighlightQuestion(question.id)}
-                                            >
-                                                <img src={answerImg} alt="Dar destaque à pergunta" />
-                                            </button>
-                                        </Fragment>
-                                    )}
-                                    <button
-                                        type="button"
-                                        onClick={() => setQuestionIdModalOpen(question.id)}
+                {   
+                        questions.length > 0 ? questions.map(question => {
+                            return (
+                                <Fragment key={question.id}>
+                                    <Question
+                                        content={question.content}
+                                        author={question.author}
+                                        isAnswered={question.isAnswered}
+                                        isHighlighted={question.isHighlighted}
                                     >
-                                        <img src={deleteImg} alt="Remover pergunta" />
-                                    </button>
-                                </Question>
-                                <Modal
-                                    isOpen={questionIdModalOpen === question.id}
-                                    onRequestClose={() => setQuestionIdModalOpen(undefined)}
-                                    className="modal"
-                                    overlayClassName="bg"
-                                >
-                                    <ModalStyle
-                                        title="Excluir pergunta"
-                                        acceptText="Sim, excluir"
-                                        action={() => handleDeleteQuestion(question.id)}
-                                        toggleAction={() => setQuestionIdModalOpen(undefined)}
-                                        type="delete"
-                                    >Tem certeza que você deseja excluir esta pergunta?</ModalStyle>
-                                </Modal>
-                            </Fragment>
-                        )
-                    })}
+                                        {!question.isAnswered && (
+                                            <Fragment>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                                                >
+                                                    <img src={checkImg} alt="Marcar pergunta como respondida" />
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => handleHighlightQuestion(question.id)}
+                                                >
+                                                    <img src={answerImg} alt="Dar destaque à pergunta" />
+                                                </button>
+                                            </Fragment>
+                                        )}
+                                        <button
+                                            type="button"
+                                            onClick={() => setQuestionIdModalOpen(question.id)}
+                                        >
+                                            <img src={deleteImg} alt="Remover pergunta" />
+                                        </button>
+                                    </Question>
+                                    <Modal
+                                        isOpen={questionIdModalOpen === question.id}
+                                        onRequestClose={() => setQuestionIdModalOpen(undefined)}
+                                        className="modal"
+                                        overlayClassName="bg"
+                                    >
+                                        <ModalStyle
+                                            title="Excluir pergunta"
+                                            acceptText="Sim, excluir"
+                                            action={() => handleDeleteQuestion(question.id)}
+                                            toggleAction={() => setQuestionIdModalOpen(undefined)}
+                                            type="delete"
+                                        >Tem certeza que você deseja excluir esta pergunta?</ModalStyle>
+                                    </Modal>
+                                </Fragment>
+                            )
+                        }) : <div className="empty-questions">
+                                <img src={emptyImg} alt="Ilustração de perguntas" />
+                                <h2>Nenhuma pergunta por aqui...</h2>
+                                <p>Os participantes da sala ainda não enviaram perguntas.</p>
+                            </div>
+                    }
                 </div>
             </main>
         </div>
