@@ -52,8 +52,12 @@ export function useRoom(roomId: string) {
                 }
             });
 
+            var sortedQuestions;
+            sortedQuestions = parsedQuestions.sort((b, a) => a.likeCount - b.likeCount);
+            sortedQuestions = sortedQuestions.sort((a, b) => !a.isAnswered ? -1 : 1);
+
             setTitle(databaseRoom.title);
-            setQuestions(parsedQuestions);
+            setQuestions(sortedQuestions);
         });
 
         return () => {

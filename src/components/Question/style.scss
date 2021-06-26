@@ -1,4 +1,5 @@
 .question {
+
     background: #fefefe;
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -20,6 +21,7 @@
     
     &.answered {
         background: #DBDCDD;
+        cursor: not-allowed;
     }
     p {
         color: #29292e;
@@ -43,7 +45,7 @@
 
             span {
                 margin-left: 8px;
-                color: #737380;
+                color: #835afd;
                 font-size: 14px;
             }
         }

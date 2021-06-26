@@ -37,9 +37,7 @@ export function AdminRoom() {
 
     useEffect(() => {
         handleRedirectIfNotAnAdmin()
-      }, [handleRedirectIfNotAnAdmin, user])
-
-
+      }, [user])
 
     const [questionIdModalOpen, setQuestionIdModalOpen] = useState<string | undefined>();
     const [closeModalOpen, setCloseModalOpen] = useState(false);
@@ -48,18 +46,12 @@ export function AdminRoom() {
 
     const { theme } = useTheme();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     async function handleRedirectIfNotAnAdmin() {
         const roomRef = database.ref(`/rooms/${roomId}`)
         const authorId = await (await roomRef.child('authorId').get()).val()
         const isAdmin = authorId === user?.id
 
-        if(!user) {
-            history.push("/");
-            toast.error("Você não está autenticado!");
-            await signInWithGoogle().then(async () => isAdmin && history.push(`admin/rooms/${roomId}`));
-        } else if(!isAdmin) history.push(`/rooms/${roomId}`);
-
+        !isAdmin && history.push(`/rooms/${roomId}`);
     }
 
     async function handleEndRoom() {
@@ -84,8 +76,10 @@ export function AdminRoom() {
     }
 
     async function handleHighlightQuestion(questionId: string) {
-        await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
-            isHighlighted: true
+        let roomRef = await database.ref(`rooms/${roomId}/questions/${questionId}`);
+        let highlightStatus = (await roomRef.once('value')).val().isHighlighted === true ? false : true;
+        roomRef.update({
+            isHighlighted: highlightStatus
         });
     }
     

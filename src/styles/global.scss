@@ -15,10 +15,27 @@ body, input, button, textarea {
 
 .dark {
     background-color: #29292e;
-    height: min(100vh);
+    min-height: 100vh;
     color: #f8f8f8;
-
-    h1, span:not(.code) {
+    
+    
+    h1, span:not(.no-change) {
         color: #f8f8f8 !important;
+    }
+
+    .question.answered {
+        background: #2d2d31
+    }
+
+    .question {
+        background: #37373C;
+        
+        & p {
+            color: white;
+        }
+        
+        & span {
+            color: #bcb8c5 !important;
+        }
     }
 }
