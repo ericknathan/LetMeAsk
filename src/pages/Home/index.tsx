@@ -10,6 +10,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useTheme } from '../../hooks/useTheme';
 
 import '../../styles/auth.scss';
+
 import { FormEvent, useState } from 'react';
 import { database } from '../../services/firebase';
 
@@ -19,8 +20,7 @@ export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle } = useAuth();
     
-    // eslint-disable-next-line
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     
     const [roomCode, setRoomCode] = useState('');
 

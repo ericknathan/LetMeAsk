@@ -1,20 +1,15 @@
-import { InputHTMLAttributes } from 'react';
-
 import './style.scss';
 
 import { useTheme } from '../../hooks/useTheme';
 
-type SwitchProps = {
-    action: () => void;
-}
-
-export function Switch(props: SwitchProps) {
-    
+export function SwitchTheme() {
+    const { theme, toggleTheme } = useTheme();
+    console.log(theme)
     return (
         <div className="toggle-wrapper">
             <div className="toggle normal">
-                <input type="checkbox" id="normal"/>
-                <label htmlFor="normal" className="toggle-item" onClick={props.action}></label>
+                <input type="checkbox" id="normal" checked={ theme === 'light' ? false : true } onChange={e => {}}/>
+                <label htmlFor="normal" className="toggle-item" onClick={toggleTheme}></label>
             </div>
         </div>
     )

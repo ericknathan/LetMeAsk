@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { Fragment, useState } from 'react';
 
 import logoImg from '../../assets/images/logo.svg';
+import logoWhiteImg from '../../assets/images/logo-white.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import checkImg from '../../assets/images/check.svg';
 import answerImg from '../../assets/images/answer.svg';
@@ -13,6 +14,8 @@ import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 import { ModalStyle } from '../../components/Modal';
+
+import { useTheme } from '../../hooks/useTheme';
 
 import '../../styles/room.scss';
 
@@ -32,6 +35,8 @@ export function AdminRoom() {
     const [closeModalOpen, setCloseModalOpen] = useState(false);
 
     const { title, questions } = useRoom(roomId);
+
+    const { theme } = useTheme();
 
     async function handleEndRoom() {
         setCloseModalOpen(false);
@@ -61,10 +66,10 @@ export function AdminRoom() {
     }
     
     return (
-        <div id="page-room">
+        <div id="page-room" className={theme}>
             <header>
                 <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
+                    <img src={theme === 'light' ? logoImg : logoWhiteImg} alt="Letmeask" />
                     <div>
                         <RoomCode code={roomId} />
                         <Button isOutlined onClick={() => setCloseModalOpen(true)}>Encerrar sala</Button>

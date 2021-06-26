@@ -4,6 +4,7 @@ import { Home } from './pages/Home';
 import { NewRoom } from './pages/NewRoom';
 import { Room } from './pages/Room';
 import { AdminRoom } from './pages/AdminRoom';
+import { SwitchTheme } from './components/SwitchButton';
 
 import { AuthContextProvider } from './contexts/AuthContext';
 
@@ -15,6 +16,7 @@ function App() {
     <BrowserRouter>
       <ThemeContextProvider>
         <AuthContextProvider>
+          <SwitchTheme/>
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/rooms/new" exact component={NewRoom} />

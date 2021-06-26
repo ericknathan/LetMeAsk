@@ -14,5 +14,11 @@ body, input, button, textarea {
 }
 
 .dark {
-    background-color: #333;
+    background-color: #29292e;
+    height: min(100vh);
+    color: #f8f8f8;
+
+    h1, span:not(.code) {
+        color: #f8f8f8 !important;
+    }
 }

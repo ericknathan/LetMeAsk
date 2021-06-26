@@ -1,6 +1,7 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 import logoImg from '../../assets/images/logo.svg';
+import logoWhiteImg from '../../assets/images/logo-white.svg';
 import emptyImg from '../../assets/images/empty-questions.svg';
 
 import { Button } from '../../components/Button';
@@ -8,6 +9,7 @@ import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 import { SignOut } from '../../components/SignOut';
 import { useAuth } from '../../hooks/useAuth';
+import { useTheme } from '../../hooks/useTheme';
 import { database } from '../../services/firebase';
 
 import '../../styles/room.scss';
@@ -25,6 +27,7 @@ export function Room() {
     const params = useParams<RoomParams>();
     const [newQuestion, setNewQuestion] = useState('');
     const roomId = params.id;
+    const { theme } = useTheme();
 
     const { title, questions } = useRoom(roomId);
 
@@ -66,10 +69,10 @@ export function Room() {
     }
     
     return (
-        <div id="page-room">
+        <div id="page-room" className={theme}>
             <header>
                 <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
+                    <img src={theme === 'light' ? logoImg : logoWhiteImg} alt="Letmeask" />
                     <RoomCode code={roomId} />
                 </div>
             </header>

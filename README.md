@@ -15,15 +15,13 @@ Letmeask é perfeito para criadores de conteúdos poderem criar salas de Q&A com
 
 Este é um projeto desenvolvido durante a **[Next Level Week Together](https://nextlevelweek.com/)**, apresentada dos dias 20 a 27 de Junho de 2021.
 
-
-
 ## :hammer_and_wrench: Features 
 
 -   [x] Disponibiliza a função de Logout.
 -   [x] Exibe 'Toasters' para avisos.
 -   [x] Abre o modal de confirmação nas ações de deletar pergunta e encerrar sala.
+-   [x] Switch de Dark Mode.
 -   [ ] Refatoração de rotas.
--   [ ] Switch de Dark Mode.
 -   [ ] Responsividade.
 -   [ ] Opção para editar código da sala.
 -   [ ] Filtro de perguntas.

@@ -1,7 +1,7 @@
 .toggle-wrapper {
     position: absolute;
-    top: 20px;
-    right: 20px;
+	top: 35px;
+	right: 24px;
 
     input {
         display: none;
@@ -32,7 +32,7 @@ label.toggle-item {
 
 .normal {
 	label {
-		background: #af4c4c;
+		background: #835afd;
 		&:before {
 			border: none;
 			width: 1em;
@@ -43,7 +43,7 @@ label.toggle-item {
 }
 
 #normal:checked + label {
-	background: #4caf50;
+	background: #485BFF;
 	&:before {
 		left: 22px;
 	}
