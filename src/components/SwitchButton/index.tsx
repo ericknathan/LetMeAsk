@@ -4,7 +4,6 @@ import { useTheme } from '../../hooks/useTheme';
 
 export function SwitchTheme() {
     const { theme, toggleTheme } = useTheme();
-    console.log(theme)
     return (
         <div className="toggle-wrapper">
             <div className="toggle normal">
